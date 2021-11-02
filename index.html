@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <div class="bookContainer">
+            <form action="" id="form">
+                <label for="bookTitle">Title of book</label><br>
+                <input type="text" id="title" value=""><br>
+                <label for="author">Author of book</label><br>
+                <input type="text" id="author" value=""><br>
+                <label for="howManyPages">Number of Pages</label><br>
+                <input type="text" id="numberOfPages" value=""><br>
+                <label>Has the book been read</label><br>
+                <div class="checkboxContainer">
+                    <input type="radio" id="hasBeenRead" name="radioBtn">
+                    <label for="hasBeenRead">Yes</label>
+                    <input type="radio" id="hasNotBeenRead" name="radioBtn">
+                    <label for="hasNotBeenRead">No</label>
+                </div>
+            </form>
+            <div class="bookShelf">
+                <button class="book" value="5" data-cell></button>
+            </div>
+            <button class="addBook">Add Book</button>
+            <button class="submitBook">Submit Book</button>
+        </div>
+        <script src="./script/script.js" async defer></script>
+    </body>
+</html>

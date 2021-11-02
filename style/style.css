@@ -1,0 +1,80 @@
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+
+:root {
+    --howManyBooks: 10;
+}
+
+.bookContainer {
+    display: flex;
+    background-color: rgb(90, 214, 214);
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+}
+
+.bookShelf {
+    width: 40rem;
+    height: 100px;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: start;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.book {
+    height: 100px;
+    width: 1rem;
+    background-color: rgb(229, 255, 84);
+    border: 1px solid black;
+    border-radius: 5px;
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.addBook, .submitBook {
+    position: absolute;
+    height: 2rem;
+    width: 10rem;
+    margin-top: 25rem;
+    background-color: rgb(240, 81, 81);
+    color: white;
+    border-radius: 5px;
+}
+
+.addBook {
+    display: block;
+}
+
+.submitBook {
+    margin-top: 30rem;
+    display: none;
+}
+
+input, form {
+    font-size: 20px;
+    outline: none;
+    border-radius: 5px;
+}
+
+input {
+    border: 0.1px solid black;
+    padding-left: 5px;
+}
+
+form { 
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+    display: none;
+}
