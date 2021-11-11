@@ -4,90 +4,80 @@
      padding: 0;
 }
 
-:root {
-    --howManyBooks: 10;
-}
-
 .bookContainer {
     display: flex;
     background-color: rgb(90, 214, 214);
     height: 100vh;
     width: 100vw;
     justify-content: center;
-}
-
-.bookShelf {
-    width: 40rem;
-    height: 100px;
-    margin-top: 10rem;
-    display: flex;
-    justify-content: start;
-    align-content: center;
-    justify-items: center;
     align-items: center;
 }
 
+.bookShelf {
+    display: flex;
+    height: 5rem;
+    width: 50%;    
+}
+
 .book {
-    height: 100px;
-    width: 1rem;
+    height: 100%;
+    width: 15px;
     background-color: rgb(229, 255, 84);
     border: 1px solid black;
     border-radius: 5px;
-    display: none;
+    margin-right: 1px;
+}
+
+.buttonsContainer {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20rem;
 }
 
 button {
-    cursor: pointer;
+    cursor: pointer
 }
 
-.addBook, .submitBook {
-    position: absolute;
-    height: 2rem;
-    width: 10rem;
-    margin-top: 25rem;
+.addBookBtn, .removeBookBtn, .submitBookBtn {
     background-color: rgb(240, 81, 81);
     color: white;
+    height: 2rem;
+    width: 10rem;
     border-radius: 5px;
 }
 
-.addBook {
-    display: block;
+
+.removeBookBtn, .submitBookBtn {
+    display: none;
 }
 
-.submitBook {
-    margin-top: 30rem;
+form {
     display: none;
+    position: absolute;
+    height: 10rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20rem;
 }
 
 input, form {
     font-size: 20px;
     outline: none;
-    border-radius: 5px;
 }
 
 input {
-    border: 0.1px solid black;
     padding-left: 5px;
 }
 
-form { 
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10rem;
-    margin-top: 5rem;
-    display: none;
-}
-
 .bookInfoContainer {
-    display: flex;
-    position: absolute;
-    font-size: 30px;
-    flex-direction: column;
-    color: rgb(252, 135, 26);
-    width: 100vw;
-    height: 10rem;
-    margin-left: 30rem;
-    margin-top: 10px;
     display: none;
+    flex-direction: column;
+    position: absolute;
+    margin-bottom: 20rem;
+    margin-right: 40rem;
+    font-size: 30px;
 }

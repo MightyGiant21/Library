@@ -10,71 +10,34 @@
     </head>
     <body>
         <div class="bookContainer">
-            <form action="" id="form">
-                <label for="bookTitle">Title of book</label><br>
-                <input type="text" id="title" value=""><br>
-                <label for="author">Author of book</label><br>
-                <input type="text" id="author" value=""><br>
-                <label for="howManyPages">Number of Pages</label><br>
-                <input type="text" id="numberOfPages" value=""><br>
-                <label>Has the book been read</label><br>
-                <div class="checkboxContainer">
-                    <input type="radio" id="hasBeenRead" name="radioBtn">
-                    <label for="hasBeenRead">Yes</label>
-                    <input type="radio" id="hasNotBeenRead" name="radioBtn">
-                    <label for="hasNotBeenRead">No</label>
-                </div>
-            </form>
-            <div class="bookInfoContainer">
-                <div class="bookTitle">df</div>
-                <div class="bookAuthor">dfd</div>
-                <div class="pagesInBook">dfd</div>
-                <div class="readStatus">dfd</div>
-            </div>
             <div class="bookShelf">
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
-                <button class="book" data-cell></button>
             </div>
-            <button class="addBook">Add Book</button>
-            <button class="submitBook">Submit Book</button>
+            <div class="buttonsContainer">
+            <button class="addBookBtn">Add Book</button>
+            <button class="removeBookBtn">Remove Book</button>
+            <button class="submitBookBtn">Submit Book</button>
+        </div>
+        <form action="" id="form">
+            <label for="title">Title of book</label><br>
+            <input type="text" id="title" value=""><br>
+            <label for="author">Author of book</label><br>
+            <input type="text" id="author" value=""><br>
+            <label for="numberOfPages">Number of Pages</label><br>
+            <input type="text" id="numberOfPages" value=""><br>
+            <label>Has the book been read</label><br>
+            <div class="checkboxContainer">
+                <input type="radio" id="radioBtn">
+                <label for="hasBeenRead">Yes</label>
+                <input type="radio" id="radioBtn">
+                <label for="hasNotBeenRead">No</label>
+            </div>
+        </form>
+        <div class="bookInfoContainer">
+            <div class="bookTitle">bob</div>
+            <div class="bookAuthor">bob</div>
+            <div class="pagesInBook">bob</div>
+            <div class="readStatus">bob</div>
+        </div> 
         </div>
         <script src="./script/script.js" async defer></script>
     </body>

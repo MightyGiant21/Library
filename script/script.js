@@ -1,81 +1,89 @@
-let addBookBtn = document.querySelector(".addBook");
-let submitBookBtn = document.querySelector(".submitBook");
-let bookShelf = document.querySelector(".bookShelf")
-let bookBtn = document.querySelectorAll("[data-cell]");
+// When a book is removed, a book is popped from the library therefore the value changes
+
+let addBookBtn = document.querySelector(".addBookBtn");
+let submitBookBtn = document.querySelector(".submitBookBtn");
+let removeBookBtn = document.querySelector(".removeBookBtn");
+
 let form = document.querySelector("#form");
-let radioButtons = document.getElementsByName("radioBtn");
+let bookShelf = document.querySelector(".bookShelf");
+// let books = document.querySelectorAll(".book");
 
-let titleValidation = document.querySelector("#title");
-let authorValidation = document.querySelector("#author");
-let pagesValidation = document.querySelector("#numberOfPages");
+let bookTitle = document.querySelector("#title");
+let bookAuthor = document.querySelector("#author");
+let numberOfPagesInBook = document.querySelector("#numberOfPages")
+let radioButtons = document.querySelectorAll("#radioBtn");
 
-let bookInfo = document.querySelector(".bookInfoContainer");
-let title = document.querySelector(".bookTitle");
-let author = document.querySelector(".bookAuthor");
-let pagesInBook = document.querySelector(".pagesInBook");
-let readStatus = document.querySelector(".readStatus");
+let bookTitleInfoToBeDisplayed = document.querySelector(".bookTitle");
+let bookAuthorInfoToBeDisplayed = document.querySelector(".bookAuthor");
+let numberOfPagesInBookInfoToBeDisplayed = document.querySelector(".pagesInBook");
+let hasBookBeenReadInfoToBeDisplayed = document.querySelector(".readStatus");
 
-addBookBtn.addEventListener('click', showForm);
-submitBookBtn.addEventListener('click', hideForm);
+let bookInfoDisplay = document.querySelector(".bookInfoContainer");
 
-for (i = 0; i < bookBtn.length; i++) {
-    bookBtn[i].addEventListener('click', showBookInfo);
-}
+addBookBtn.addEventListener('click', addBook);
+submitBookBtn.addEventListener('click', submitBook);
+removeBookBtn.addEventListener('click', removeBook);
+
+// for (i = 0; i < books.length; i++) {
+//     books[i].addEventListener('click', showBookInfo);
+// }
 
 let library = [];
-let beenRead = false;
+let selectedBook;
 
-function NewBook(title, author, pages, hasItBeenRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasItBeenRead = hasItBeenRead;
+function addBook() {
+    showOrHideForm(this);
+    changeButtonsToBeDisplayed(this);
 }
 
-function showForm() {
-    changeDisplayOfTarget(this);
-    hideBooks();
+function submitBook() {
+    submitInfoToLibrary();
+    showOrHideForm(this);
+    changeButtonsToBeDisplayed(this);
 }
 
-function hideForm() {
-    if (hasFormBeenCompletedCheck() == true) {
-        createNewBookInfo();
-        changeDisplayOfTarget(this);
-        showBooks();
-        form.reset();
-    } else {
-
-    }   
+function removeBook() {
+    bookInfoDisplay.style.display = "none";
+    books[selectedBook].style.display = "none";
+    removeBookFromLibrary(selectedBook);
 }
 
-function hideBooks() {
-    bookInfo.style.display = "none";
-    for (i = 0; i < bookBtn.length; i++) {
-        bookBtn[i].style.display = "none";
+function showOrHideForm(e) {
+    if (e == addBookBtn) {
+        form.style.display = "flex";
+        // showOrHideBooks(true);
+        bookInfoDisplay.style.display = "none";
+    } else if (e == submitBookBtn) {
+        form.style.display = "none";
+        // showOrHideBooks(false);
     }
 }
 
-function showBooks() {
-    console.log(library);
-    for (i = 0; i < library.length; i++) {
-        bookBtn[i].style.display = "flex";
+// function showOrHideBooks(hideBooks) {
+//     if (hideBooks) {
+//         for (i = 0; i < library.length; i++){
+//             books[i].style.display = "none";
+//         }
+//     } else {
+//         for (i = 0; i < library.length; i++) {
+//             books[i].style.display = "block";
+//         }
+//     }
+// }
+
+function changeButtonsToBeDisplayed(e) {
+    if (e == addBookBtn) {
+        addBookBtn.style.display = "none";
+        submitBookBtn.style.display = "block"
+        removeBookBtn.style.display = "none";
+    } else if (e == submitBookBtn) {
+        addBookBtn.style.display = "block";
+        submitBookBtn.style.display = "none"
+        removeBookBtn.style.display = "none";
     }
 }
 
-function hasFormBeenCompletedCheck() {
-    // if (titleValidation.value.match("^[A-Za-z0-9]{1,50}") &&
-    //     authorValidation.value.match("^[A-Za-z]{1,50}") && 
-    //     pagesValidation.value.match("^[0-9]{1,50}") &&
-    //     radioButtons[0].checked || 
-    //     radioButtons[1].checked) {
-    //         createNewBookInfo();
-    //         return true
-    // } else {
-    //     return false
-    // }
-    return true
-}
-function checkRadioBtn() {
+function radioButtonsCheck() {
     if (radioButtons[0].checked) {
         return true
     } else {
@@ -83,36 +91,37 @@ function checkRadioBtn() {
     }
 }
 
-function createNewBookInfo() {
-    if (radioButtons[0].checked) {
-        beenRead = true;
-    } else {
-        beenRead = false;
-    }
-    let newBook = new NewBook(titleValidation.value, authorValidation.value, pagesValidation.value, beenRead);
-    library.push(newBook);
+function submitInfoToLibrary() {
+    let hasItBeenRead = radioButtonsCheck();
+    let bookToBeSubmitted = new CreateNewBook(bookTitle.value, bookAuthor.value, numberOfPagesInBook.value, hasItBeenRead);
+    library.push(bookToBeSubmitted);
+    let book = document.createElement("button");
+    book.addEventListener('click', showBookInfo);
+    book.classList.add('book');
+    bookShelf.appendChild(book);
 }
 
-function changeDisplayOfTarget(e) {
-    if (e == addBookBtn) {
-        form.style.display = "flex";
-        submitBookBtn.style.display = "block";
-        addBookBtn.style.display = "none";
-    } else if (e == submitBookBtn) {
-            form.style.display = "none";
-            submitBookBtn.style.display = "none";
-            addBookBtn.style.display = "block";
-    }
-}
-
-function hideBookInfo() {
-    bookInfo.style.display = "flex";
+function removeBookFromLibrary(bookToBeRemoved) {
+    library.splice(bookToBeRemoved, 1);
 }
 
 function showBookInfo() {
-    bookInfo.style.display = "flex";
-    title.innerHTML = library[0].title;
-    author.innerHTML = library[0].author;
-    pagesInBook.innerHTML = library[0].pages;
-    readStatus.innerHTML = library[0].hasItBeenRead;
+    removeBookBtn.style.display = "block";
+    bookInfoDisplay.style.display = "block";
+    selectedBook = this.value;
+    bookTitleInfoToBeDisplayed.innerHTML = "The title of this book is " + library[selectedBook].title;
+    bookAuthorInfoToBeDisplayed.innerHTML = "The author of this book is " + library[selectedBook].author;
+    numberOfPagesInBookInfoToBeDisplayed.innerHTML = "The number of pages in this book are " + library[selectedBook].pages;
+    if (library[selectedBook].hasItBeenRead) {
+    hasBookBeenReadInfoToBeDisplayed.innerHTML = "You have read this book!"
+    } else if (!library[selectedBook].hasItBeenRead) {
+    hasBookBeenReadInfoToBeDisplayed.innerHTML = "You have not read this book!";
+    };
+}
+
+function CreateNewBook(title, author, pages, hasItBeenRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.hasItBeenRead = hasItBeenRead;
 }
