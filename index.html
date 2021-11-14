@@ -16,6 +16,8 @@
             <button class="addBookBtn">Add Book</button>
             <button class="removeBookBtn">Remove Book</button>
             <button class="submitBookBtn">Submit Book</button>
+            <button class="markAsReadBtn">Mark As Read</button>
+
         </div>
         <form action="" id="form">
             <label for="title">Title of book</label><br>
@@ -26,17 +28,17 @@
             <input type="text" id="numberOfPages" value=""><br>
             <label>Has the book been read</label><br>
             <div class="checkboxContainer">
-                <input type="radio" id="radioBtn">
+                <input type="radio" id="radioBtn" name="radio">
                 <label for="hasBeenRead">Yes</label>
-                <input type="radio" id="radioBtn">
+                <input type="radio" id="radioBtn" name="radio">
                 <label for="hasNotBeenRead">No</label>
             </div>
         </form>
         <div class="bookInfoContainer">
-            <div class="bookTitle">bob</div>
-            <div class="bookAuthor">bob</div>
-            <div class="pagesInBook">bob</div>
-            <div class="readStatus">bob</div>
+            <div class="bookTitle"></div>
+            <div class="bookAuthor"></div>
+            <div class="pagesInBook"></div>
+            <div class="readStatus"></div>
         </div> 
         </div>
         <script src="./script/script.js" async defer></script>
